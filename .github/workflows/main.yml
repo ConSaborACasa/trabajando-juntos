@@ -1,9 +1,8 @@
 name: Ejecutar Script Node.js
 
 on:
-  push:
-    branches:
-      - main  # Ajusta el nombre de tu rama principal si es diferente
+  schedule:
+    - cron: '0 9 * * 1-6'  # Programar para ejecutar de lunes a sábado a las 9:00 am
 
 jobs:
   build:
@@ -23,4 +22,3 @@ jobs:
 
       - name: Run Script
         run: node app.js  # Ajusta el nombre del script si es diferente
-
