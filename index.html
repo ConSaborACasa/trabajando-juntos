@@ -16,8 +16,26 @@
   gtag('js', new Date());
 
   gtag('config', 'AW-16628624029');
-</script
-    <style>
+</script>
+<!-- Event snippet for Vista de página conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16628624029/xT6wCLWptL4ZEJ3Vkvk9',
+      'value': 1.0,
+      'currency': 'ARS',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<style>
         .jumbotron {
             background-image: url('fondo.png');
             background-size: cover;
