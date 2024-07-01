@@ -84,9 +84,117 @@
     <div class="jumbotron">
         <div class="container"></div>
     </div>
-
     <div class="container mt-4">
         <center><h6 class="display-4">Bienvenid@s a Salta Trabaja</h6></center>
+        <div id="weather" style="display: flex; justify-content: center;">
+            <div style="flex: 1; text-align: center;">
+                <h5>Clima en tu ciudad:</h5>
+                <div class="weather">
+                    <img src="" alt="" style="width: 80px;">
+                    <p class="temperature" style="font-size: 24px;"></p>
+                </div>
+                <div class="weather-details">
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                </div>
+            </div>
+        </div>
+        <style>
+            #weather {
+                text-align: center;
+                margin-top: 20px;
+            }
+    
+            .weather img {
+                width: 60%;
+            }
+    
+            .weather .temperature {
+                font-size: 36px;
+                font-weight: 700;
+            }
+    
+            .weather .description {
+                font-size: 22px;
+                font-weight: 500;
+                text-transform: capitalize;
+            }
+    
+            .weather-details {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+            }
+    
+            .weather-details p {
+                font-size: 18px;
+                font-weight: 500;
+                margin-top: 4px;
+            }
+        </style>
+        <script>
+            const apiKey = '18f49030a54ac29d07a9cabc2ed92a73';
+            const ciudad = 'Salta';
+    
+            async function fetchWeather() {
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`);
+                    if (!response.ok) {
+                        throw new Error('La red no respondió correctamente');
+                    }
+                    const data = await response.json();
+                    displayWeather(data);
+                } catch (error) {
+                    console.error('Error al obtener datos del clima:', error);
+                    showNotFoundError();
+                }
+            }
+    
+            function displayWeather(data) {
+                const weatherImage = document.querySelector('.weather img');
+                const temperature = document.querySelector('.weather .temperature');
+                const humidity = document.getElementById('humidity');
+                const wind = document.getElementById('wind');
+    
+                switch (data.weather[0].main) {
+                    case 'Clear':
+                        weatherImage.src = 'images/clear.png';
+                        break;
+                    case 'Rain':
+                        weatherImage.src = 'images/rain.png';
+                        break;
+                    case 'Snow':
+                        weatherImage.src = 'images/snow.png';
+                        break;
+                    case 'Clouds':
+                        weatherImage.src = 'images/cloud.png';
+                        break;
+                    case 'Mist':
+                    case 'Haze':
+                        weatherImage.src = 'images/mist.png';
+                        break;
+                    default:
+                        weatherImage.src = 'images/cloud.png';
+                }
+    
+                temperature.textContent = `${Math.round(data.main.temp)}°C`;
+                humidity.textContent = `Humedad: ${data.main.humidity}%`;
+                wind.textContent = `Viento: ${Math.round(data.wind.speed)} Km/h`;
+    
+                document.querySelector('.weather').style.visibility = 'visible';
+                document.querySelector('.weather-details').style.visibility = 'visible';
+            }
+    
+            function showNotFoundError() {
+                document.querySelector('.weather').style.visibility = 'hidden';
+                document.querySelector('.weather-details').style.visibility = 'hidden';
+                document.querySelector('.not-found').style.display = 'block';
+            }
+    
+            fetchWeather();
+        </script>
     </div>
 
     <div class="container mt-5">
