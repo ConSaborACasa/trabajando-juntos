@@ -1,87 +1,104 @@
-/* Estilos generales */
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-    color: #212529;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 .navbar {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
-    font-weight: bold;
-    color: #343a40;
+  font-weight: bold;
+  color: #343a40;
 }
 
 .navbar-nav .nav-link {
-    color: #343a40;
-    transition: color 0.3s ease-in-out; /* Agregamos transición suave para hover */
+  color: #343a40;
+  transition: color 0.3s ease-in-out; /* Agregamos transición suave para hover */
 }
 
 .navbar-nav .nav-link:hover {
-    color: #007bff;
+  color: #007bff;
 }
 
 .container {
-    max-width: 960px;
-    margin: 0 auto;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .card {
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    margin-bottom: 20px; /* Espacio entre tarjetas */
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin-bottom: 20px; /* Espacio entre tarjetas */
 }
 
 .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #343a40;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #343a40;
 }
 
 .card-subtitle {
-    font-size: 0.875rem;
-    color: #6c757d;
+  font-size: 0.875rem;
+  color: #6c757d;
 }
 
 .card-text {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .footer {
-    text-align: center;
-    background-color: #f8f9fa;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
+  text-align: center;
+  background-color: #f8f9fa;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
 }
 
 /* Estilos específicos para los botones de paginación */
 .btn {
-    border-radius: 20px; /* Botones con esquinas redondeadas */
+  border-radius: 20px; /* Botones con esquinas redondeadas */
 }
 
 .btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
 
 .btn-warning:hover {
-    background-color: #e0a800;
-    border-color: #d39e00;
+  background-color: #e0a800;
+  border-color: #d39e00;
 }
 
 .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-success:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+  background-color: #218838;
+  border-color: #1e7e34;
 }
+
+
+
+.jumbotron {
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+}
+
+  .jumbotron h1 {
+      font-size: 3rem;
+  }
+
+/* Estilos específicos para el clima */
